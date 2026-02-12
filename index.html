@@ -26,11 +26,11 @@ body {
     background:
         linear-gradient(
             to bottom,
-            rgba(234,228,216,0.92) 0%,
-            rgba(234,228,216,0.75) 35%,
-            rgba(234,228,216,0.45) 65%,
-            rgba(234,228,216,0.15) 85%,
-            rgba(234,228,216,0.02) 100%
+            rgba(234,228,216,0.75) 0%,
+            rgba(234,228,216,0.55) 30%,
+            rgba(234,228,216,0.30) 60%,
+            rgba(234,228,216,0.12) 80%,
+            rgba(234,228,216,0.05) 100%
         ),
         url("Nature.jpg") no-repeat center 85%/cover;
     position: relative;
@@ -41,7 +41,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
     pointer-events: none;
 }
 
@@ -63,7 +63,7 @@ h1 {
 
 /* Broader Arrow */
 .arrow {
-    margin: 70px 0 10px 0;
+    margin: 70px 0 8px 0;
     font-size: 2.4rem;
     color: #8c877f;
     line-height: 1;
@@ -71,7 +71,7 @@ h1 {
 
 /* Longer Gentle Divider */
 .divider {
-    width: 260px;   /* increased length */
+    width: 280px;
     height: 1px;
     margin: 0 auto 70px auto;
     background: linear-gradient(
@@ -94,7 +94,6 @@ h1 {
     color: #5c5852;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2.2rem; }
     .bottom p { font-size: 1rem; }
