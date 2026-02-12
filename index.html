@@ -19,40 +19,35 @@ body {
     background: #eae4d8;
 }
 
-/* ONE CONTINUOUS CANVAS */
+/* PORTRAIT FEEL CANVAS */
 .canvas {
-    min-height: 100vh;
+    min-height: 130vh; /* Taller for portrait feeling */
+    padding: 100px 20px 160px 20px;
     background:
         linear-gradient(
             to bottom,
-            rgba(234,228,216,0.95) 0%,
-            rgba(234,228,216,0.85) 30%,
-            rgba(234,228,216,0.6) 55%,
-            rgba(234,228,216,0.3) 75%,
-            rgba(234,228,216,0.1) 90%
+            rgba(234,228,216,0.96) 0%,
+            rgba(234,228,216,0.88) 30%,
+            rgba(234,228,216,0.65) 55%,
+            rgba(234,228,216,0.35) 75%,
+            rgba(234,228,216,0.05) 100%
         ),
-        url("Nature.jpg") no-repeat center bottom/cover;
+        url("Nature.jpg") no-repeat center 80%/cover;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Sand grain texture */
+/* Grain */
 .canvas::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.07'/%3E%3C/svg%3E");
     pointer-events: none;
 }
 
-/* Top Content */
+/* Top */
 .top {
-    margin-bottom: 120px;
-    position: relative;
-    z-index: 2;
+    margin-top: 60px;
 }
 
 h1 {
@@ -66,18 +61,31 @@ h1 {
     color: #7a756c;
 }
 
-/* Arrow */
+/* Soft Arrow */
 .arrow {
-    margin: 40px 0;
-    font-size: 1.5rem;
+    margin: 60px 0 40px 0;
+    font-size: 2rem;
     color: #8c877f;
+    font-weight: lighter;
+}
+
+/* Gentle Divider */
+.divider {
+    width: 180px;
+    height: 1px;
+    margin: 40px auto 60px auto;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(120,115,108,0.4),
+        rgba(0,0,0,0)
+    );
 }
 
 /* Bottom Text */
 .bottom {
-    position: relative;
-    z-index: 2;
     max-width: 700px;
+    margin: auto;
 }
 
 .bottom p {
@@ -103,7 +111,9 @@ h1 {
         <div class="subtitle">A Mobile Museum</div>
     </div>
 
-    <div class="arrow">&#709;</div>
+    <div class="arrow">⌄</div>
+
+    <div class="divider"></div>
 
     <div class="bottom">
         <p>What is seen here may appear simple at first glance.</p>
