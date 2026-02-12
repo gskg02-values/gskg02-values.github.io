@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Values</title>
+<title>The Unsaid</title>
 
 <style>
 * {
@@ -12,66 +12,102 @@
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: "Segoe UI", sans-serif;
+body {
+    font-family: "Georgia", serif;
+    background-color: #f4f1ea;
+    color: #4a4a4a;
+    text-align: center;
 }
 
-/* HERO SECTION */
+/* ---------- HERO SECTION ---------- */
+
 .hero {
-    position: relative;
     height: 100vh;
+    background: url("Nature.jpg") no-repeat center top/cover;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: #2f3e2f;
-    background: url("Nature.jpg") no-repeat center center/cover;
+    flex-direction: column;
 }
 
-/* Soft fade overlay */
+/* Soft overlay */
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.5);  
+    background: rgba(255, 255, 255, 0.72);
 }
 
-/* Subtle grain texture */
+/* Grain texture */
 .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.12' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
     pointer-events: none;
 }
 
-/* Content */
-.content {
+.hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 20px;
 }
 
-h1 {
+.hero h1 {
     font-size: 3rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-weight: normal;
+    margin-bottom: 10px;
 }
 
-p {
-    margin-top: 20px;
+.hero p {
+    font-size: 1.1rem;
+    color: #777;
+}
+
+/* Down arrow */
+.arrow {
+    position: absolute;
+    bottom: 40px;
+    font-size: 1.5rem;
+    color: #999;
+    z-index: 2;
+}
+
+/* Divider line */
+.divider {
+    height: 1px;
+    background: #ddd;
+    width: 80%;
+    margin: auto;
+}
+
+/* ---------- SECOND SECTION ---------- */
+
+.section {
+    padding: 80px 20px 140px 20px;
+    background: linear-gradient(
+        to bottom,
+        rgba(244,241,234,1) 0%,
+        rgba(244,241,234,0.95) 40%,
+        rgba(244,241,234,0.85) 70%,
+        rgba(244,241,234,0.6) 100%
+    ),
+    url("Nature.jpg") no-repeat center bottom/cover;
+}
+
+.section p {
     font-size: 1.2rem;
-    line-height: 1.6;
+    margin: 40px 0;
+    color: #5c5c5c;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-    h1 {
+    .hero h1 {
         font-size: 2.2rem;
     }
-    p {
+
+    .section p {
         font-size: 1rem;
     }
 }
@@ -80,12 +116,21 @@ p {
 
 <body>
 
-<div class="hero">
-    <div class="content">
-        <h1>VALUES</h1>
-        <p>Building meaningful progress for present and future generations.</p>
+<section class="hero">
+    <div class="hero-content">
+        <h1>The Unsaid</h1>
+        <p>A Mobile Museum</p>
     </div>
-</div>
+    <div class="arrow">&#709;</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+    <p>What is seen here may appear simple at first glance.</p>
+    <p>With time, it begins to reveal …</p>
+    <p>Later, it may suggest …</p>
+</section>
 
 </body>
 </html>
