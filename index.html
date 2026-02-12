@@ -7,94 +7,72 @@
 
 <style>
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Georgia, serif;
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background-color: #ece7dc; /* creamy museum tone */
+    background-image: 
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 3px 3px; /* medium grain texture */
+    color: #2b2b2b;
+    overflow-x: hidden;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Full screen section */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
 }
 
-/* Full screen sections */
-section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
+/* Intro text */
+.intro-text {
+    max-width: 750px;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
 }
 
-/* ---------- PAGE 1 Background ---------- */
-.hero {
-  background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070') no-repeat center/cover;
-  position: relative;
-  color: #f4f1ea;
-}
+/* Staggered delays */
+.intro-text:nth-child(1) { animation-delay: 1s; }
+.intro-text:nth-child(2) { animation-delay: 3s; }
+.intro-text:nth-child(3) { animation-delay: 5s; }
 
-/* Texture overlay */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
-
-/* Content above overlay */
-.hero-content {
-  position: relative;
-  max-width: 700px;
-}
-
-/* Main Title */
-.hero h1 {
-  font-size: 48px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-}
-
-/* Subtitle */
-.hero h2 {
-  font-size: 20px;
-  font-weight: normal;
-  margin-bottom: 60px;
-  opacity: 0.85;
-}
-
-/* Text paragraph */
-.hero p {
-  font-size: 18px;
-  line-height: 1.7;
-  opacity: 0.9;
-}
-
-/* ---------- Relook Section ---------- */
+/* Relook section */
 .relook {
-  background: #f2eee6;
-  color: #3a3a3a;
-  flex-direction: column;
+    position: absolute;
+    bottom: 90px; /* slightly lower placement */
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 8s; /* 2–3 sec pause after last line */
 }
 
-/* Relook Text */
-.relook-text {
-  margin-top: 40vh;
-  font-size: 28px;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeIn 3s ease forwards;
-  animation-delay: 2s;
+/* Bottom natural landscape fade */
+.bottom-fade {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    background: 
+        linear-gradient(to top, rgba(0,0,0,0.25), transparent),
+        url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    pointer-events: none;
 }
 
 /* Fade animation */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+    to { opacity: 1; }
 }
 
 </style>
@@ -102,33 +80,29 @@ section {
 
 <body>
 
-<!-- 🌿 PAGE 1 -->
-<section class="hero">
+<div class="section">
 
-  <div class="hero-content">
-    <h1>THE UNSAID</h1>
-    <h2>A Museum of Quiet Order</h2>
+<div class="intro-text">
+What is seen here may appear simple at first glance.
+</div>
 
-    <p>
-      What is seen here may appear simple at first glance.<br><br>
-      With time, it begins to reveal…<br><br>
-      And eventually, its presence continues beyond its form.
-    </p>
-  </div>
+<div class="intro-text">
+With time, it begins to reveal…
+</div>
 
-</section>
+<div class="intro-text">
+And eventually, its presence continues beyond its form.
+</div>
 
+<div class="relook">
+Relook.<br>
+Rethink.<br>
+Return.
+</div>
 
-<!-- 🌿 PAGE 2 -->
-<section class="relook">
+</div>
 
-  <div class="relook-text">
-    Relook.<br>
-    Rethink.<br>
-    Return.
-  </div>
-
-</section>
+<div class="bottom-fade"></div>
 
 </body>
 </html>
