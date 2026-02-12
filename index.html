@@ -193,35 +193,34 @@ section {
 </section>
 
 <script>
-const sections = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
+      // For normal fade sections
+      if (!entry.target.classList.contains("invitation")) {
+        entry.target.classList.add("visible");
+      }
 
-            // Normal fade sections
-            if (!entry.target.classList.contains('invitation')) {
-                entry.target.classList.add('visible');
-            }
+      // For invitation stagger
+      if (entry.target.classList.contains("invitation")) {
+        const lines = entry.target.querySelectorAll("p");
 
-            // Special stagger for invitation
-            if (entry.target.classList.contains('invitation')) {
-                const lines = entry.target.querySelectorAll('p');
+        lines.forEach((line, i) => {
+          setTimeout(() => {
+            line.style.opacity = "1";
+            line.style.transform = "translateY(0)";
+          }, i * 1000);   // 1 second gap
+        });
+      }
 
-                lines.forEach((line, index) => {
-                    setTimeout(() => {
-                        line.style.opacity = "1";
-                        line.style.transform = "translateY(0)";
-                    }, index * 900);
-                });
-            }
-        }
-    });
-}, { threshold: 0.4 });
+      obs.unobserve(entry.target); // trigger only once
+    }
+  });
+}, { threshold: 0.5 });
 
-sections.forEach(section => observer.observe(section));
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 </script>
-
 
 </body>
 </html>
