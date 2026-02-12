@@ -10,57 +10,57 @@
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background-color: #ece7dc; /* creamy museum tone */
-    background-image: 
-        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 3px 3px; /* medium grain texture */
-    color: #2b2b2b;
-    overflow-x: hidden;
+    background-color: #ece7dc;
+    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 3px 3px;
+    color: #2c2c2c;
+    line-height: 1.8;
 }
 
-/* Full screen section */
-.section {
+/* Hero Section */
+.hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px;
-    position: relative;
+    padding: 20px;
 }
 
-/* Intro text */
-.intro-text {
-    max-width: 750px;
-    font-size: 1.4rem;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 0;
 }
 
-/* Staggered delays */
-.intro-text:nth-child(1) { animation-delay: 1s; }
-.intro-text:nth-child(2) { animation-delay: 3s; }
-.intro-text:nth-child(3) { animation-delay: 5s; }
-
-/* Relook section */
-.relook {
-    position: absolute;
-    bottom: 90px; /* slightly lower placement */
+.hero p {
     font-size: 1.2rem;
-    letter-spacing: 2px;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 8s; /* 2–3 sec pause after last line */
+    margin-top: 10px;
+    opacity: 0.7;
 }
 
-/* Bottom natural landscape fade */
+.arrow {
+    margin-top: 40px;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+/* Text Section */
+.content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 60px 20px 200px 20px;
+    font-size: 1.3rem;
+}
+
+/* Bottom Landscape Fade */
 .bottom-fade {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 220px;
+    height: 250px;
     background: 
         linear-gradient(to top, rgba(0,0,0,0.25), transparent),
         url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429');
@@ -70,36 +70,23 @@ body {
     pointer-events: none;
 }
 
-/* Fade animation */
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="section">
-
-<div class="intro-text">
-What is seen here may appear simple at first glance.
+<div class="hero">
+    <h1>THE UNSAID</h1>
+    <p>A Museum of Quiet Order</p>
+    <div class="arrow">↓</div>
 </div>
 
-<div class="intro-text">
-With time, it begins to reveal…
-</div>
-
-<div class="intro-text">
-And eventually, its presence continues beyond its form.
-</div>
-
-<div class="relook">
-Relook.<br>
-Rethink.<br>
-Return.
-</div>
-
+<div class="content">
+    <p>What is seen here may appear simple at first glance.</p>
+    <br>
+    <p>With time, it begins to reveal…</p>
+    <br>
+    <p>And eventually, its presence continues beyond its form.</p>
 </div>
 
 <div class="bottom-fade"></div>
