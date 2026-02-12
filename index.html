@@ -162,7 +162,7 @@ section {
 <div class="divider"></div>
 
 <!-- Second Reveal -->
-<section class="invitation">
+<section class="invitation fade">
   <p>Relook.</p>
   <p>Rethink.</p>
   <p>Return.</p>
@@ -190,14 +190,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (entry.isIntersecting) {
 
-        // Normal fade sections
-        if (!entry.target.classList.contains("invitation")) {
-          entry.target.classList.add("visible");
-        }
+        // Make section visible
+        entry.target.classList.add("visible");
 
-        // Stagger invitation lines
+        // If invitation section → stagger inner lines
         if (entry.target.classList.contains("invitation")) {
+
           const lines = entry.target.querySelectorAll("p");
+
           lines.forEach((line, i) => {
             setTimeout(() => {
               line.style.opacity = "1";
@@ -215,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
 
 </body>
 </html>
