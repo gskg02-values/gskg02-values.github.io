@@ -19,14 +19,18 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+  position: relative;
+  height: 100vh;
+  background: url('soft-bg.png') no-repeat center center/cover;
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);  /* increase to 0.7 if you want softer */
+}
+
 
 .hero h1 {
     font-size: 3rem;
