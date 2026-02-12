@@ -14,123 +14,104 @@
 
 body {
     font-family: "Georgia", serif;
-    background-color: #f4f1ea;
-    color: #4a4a4a;
+    color: #4b4b4b;
     text-align: center;
+    background: #eae4d8;
 }
 
-/* ---------- HERO SECTION ---------- */
-
-.hero {
-    height: 100vh;
-    background: url("Nature.jpg") no-repeat center top/cover;
+/* ONE CONTINUOUS CANVAS */
+.canvas {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(234,228,216,0.95) 0%,
+            rgba(234,228,216,0.85) 30%,
+            rgba(234,228,216,0.6) 55%,
+            rgba(234,228,216,0.3) 75%,
+            rgba(234,228,216,0.1) 90%
+        ),
+        url("Nature.jpg") no-repeat center bottom/cover;
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
-/* Soft overlay */
-.hero::before {
+/* Sand grain texture */
+.canvas::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.72);
-}
-
-/* Grain texture */
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
     pointer-events: none;
 }
 
-.hero-content {
+/* Top Content */
+.top {
+    margin-bottom: 120px;
     position: relative;
     z-index: 2;
 }
 
-.hero h1 {
+h1 {
     font-size: 3rem;
     font-weight: normal;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.hero p {
+.subtitle {
     font-size: 1.1rem;
-    color: #777;
+    color: #7a756c;
 }
 
-/* Down arrow */
+/* Arrow */
 .arrow {
-    position: absolute;
-    bottom: 40px;
-    font-size: 1.5rem;
-    color: #999;
-    z-index: 2;
-}
-
-/* Divider line */
-.divider {
-    height: 1px;
-    background: #ddd;
-    width: 80%;
-    margin: auto;
-}
-
-/* ---------- SECOND SECTION ---------- */
-
-.section {
-    padding: 80px 20px 140px 20px;
-    background: linear-gradient(
-        to bottom,
-        rgba(244,241,234,1) 0%,
-        rgba(244,241,234,0.95) 40%,
-        rgba(244,241,234,0.85) 70%,
-        rgba(244,241,234,0.6) 100%
-    ),
-    url("Nature.jpg") no-repeat center bottom/cover;
-}
-
-.section p {
-    font-size: 1.2rem;
     margin: 40px 0;
-    color: #5c5c5c;
+    font-size: 1.5rem;
+    color: #8c877f;
+}
+
+/* Bottom Text */
+.bottom {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.bottom p {
+    font-size: 1.2rem;
+    margin: 35px 0;
+    color: #5c5852;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .section p {
-        font-size: 1rem;
-    }
+    h1 { font-size: 2.2rem; }
+    .bottom p { font-size: 1rem; }
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-    <div class="hero-content">
+<div class="canvas">
+
+    <div class="top">
         <h1>The Unsaid</h1>
-        <p>A Mobile Museum</p>
+        <div class="subtitle">A Mobile Museum</div>
     </div>
+
     <div class="arrow">&#709;</div>
-</section>
 
-<div class="divider"></div>
+    <div class="bottom">
+        <p>What is seen here may appear simple at first glance.</p>
+        <p>With time, it begins to reveal …</p>
+        <p>Later, it may suggest …</p>
+    </div>
 
-<section class="section">
-    <p>What is seen here may appear simple at first glance.</p>
-    <p>With time, it begins to reveal …</p>
-    <p>Later, it may suggest …</p>
-</section>
+</div>
 
 </body>
 </html>
