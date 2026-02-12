@@ -3,103 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE UNSAID</title>
+<title>Values</title>
 
 <style>
-
-body {
+* {
     margin: 0;
-    font-family: Georgia, serif;
-    background-color: #ece7dc;
-    background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-    background-size: 3px 3px;
-    color: #2c2c2c;
-    line-height: 1.8;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Hero Section */
+body, html {
+    height: 100%;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* HERO SECTION */
 .hero {
-  position: relative;
-  height: 100vh;
-  background: url('Nature.jpg');
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: 500;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    opacity: 0.7;
-}
-
-.arrow {
-    margin-top: 40px;
-    font-size: 1.5rem;
-    opacity: 0.5;
-}
-
-/* Text Section */
-.content {
-    max-width: 800px;
-    margin: auto;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 60px 20px 200px 20px;
-    font-size: 1.3rem;
+    color: #2f3e2f;
+    background: url("Nature.jpg") no-repeat center center/cover;
 }
 
-/* Bottom Landscape Fade */
-.bottom-fade {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 300px;
-    background:
-        linear-gradient(to top, 
-            rgba(236,231,220,1) 0%, 
-            rgba(236,231,220,0.9) 35%, 
-            rgba(236,231,220,0.6) 60%, 
-            rgba(236,231,220,0.2) 85%, 
-            transparent 100%
-        ),
-        url('Nature,jpg') no-repeat center center/cover;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.25;
+/* Soft fade overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.65);  /* increase to 0.7 if you want softer */
+}
+
+/* Subtle grain texture */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
     pointer-events: none;
 }
 
+/* Content */
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-    <h1>THE UNSAID</h1>
-    <p>A Museum of Quiet Order</p>
-    <div class="arrow">↓</div>
+    <div class="content">
+        <h1>VALUES</h1>
+        <p>Building meaningful progress for present and future generations.</p>
+    </div>
 </div>
-
-<div class="content">
-    <p>What is seen here may appear simple at first glance.</p>
-    <br>
-    <p>With time, it begins to reveal…</p>
-    <br>
-    <p>And eventually, its presence continues beyond its form.</p>
-</div>
-
-<div class="bottom-fade"></div>
 
 </body>
 </html>
