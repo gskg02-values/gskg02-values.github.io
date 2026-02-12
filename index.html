@@ -193,33 +193,38 @@ section {
 </section>
 
 <script>
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+document.addEventListener("DOMContentLoaded", function () {
 
-      // For normal fade sections
-      if (!entry.target.classList.contains("invitation")) {
-        entry.target.classList.add("visible");
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        // Normal fade sections
+        if (!entry.target.classList.contains("invitation")) {
+          entry.target.classList.add("visible");
+        }
+
+        // Invitation stagger
+        if (entry.target.classList.contains("invitation")) {
+          const lines = entry.target.querySelectorAll("p");
+
+          lines.forEach((line, i) => {
+            setTimeout(() => {
+              line.style.opacity = "1";
+              line.style.transform = "translateY(0)";
+            }, i * 900);
+          });
+        }
+
+        obs.unobserve(entry.target);
       }
+    });
+  }, { threshold: 0.4 });
 
-      // For invitation stagger
-      if (entry.target.classList.contains("invitation")) {
-        const lines = entry.target.querySelectorAll("p");
+  document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
-        lines.forEach((line, i) => {
-          setTimeout(() => {
-            line.style.opacity = "1";
-            line.style.transform = "translateY(0)";
-          }, i * 1000);   // 1 second gap
-        });
-      }
-
-      obs.unobserve(entry.target); // trigger only once
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+});
 </script>
 
 </body>
