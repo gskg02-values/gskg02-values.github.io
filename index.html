@@ -73,4 +73,55 @@ h1 {
 .divider {
     width: 260px;   /* increased length */
     height: 1px;
-    margin:
+    margin: 0 auto 70px auto;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(120,115,108,0.45),
+        rgba(0,0,0,0)
+    );
+}
+
+/* Bottom Text */
+.bottom {
+    max-width: 700px;
+    margin: auto;
+}
+
+.bottom p {
+    font-size: 1.2rem;
+    margin: 35px 0;
+    color: #5c5852;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .bottom p { font-size: 1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="canvas">
+
+    <div class="top">
+        <h1>The Unsaid</h1>
+        <div class="subtitle">A Mobile Museum</div>
+    </div>
+
+    <div class="arrow">︾</div>
+
+    <div class="divider"></div>
+
+    <div class="bottom">
+        <p>What is seen here may appear simple at first glance.</p>
+        <p>With time, it begins to reveal …</p>
+        <p>Later, it may suggest …</p>
+    </div>
+
+</div>
+
+</body>
+</html>
