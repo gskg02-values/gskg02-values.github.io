@@ -9,56 +9,75 @@
       margin: 0;
       font-family: Georgia, serif;
       background: #f4f1ea;
-      color: #2f3a2f;
       text-align: center;
     }
 
-    .room {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
     h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      font-size: 42px;
+      color: #2f3a2f;
     }
 
-    p {
-      font-size: 20px;
-      max-width: 600px;
-      line-height: 1.6;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 0;
+      text-decoration: none;
+      color: #2f3a2f;
+      border-radius: 6px;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: #e8e4da;
     }
 
     .home-btn {
-      margin-top: 40px;
-      padding: 12px 24px;
+      display: inline-block;
+      margin: 30px;
       text-decoration: none;
+      padding: 10px 20px;
       background: #2f3a2f;
       color: white;
       border-radius: 4px;
-      transition: 0.3s;
-    }
-
-    .home-btn:hover {
-      background: #1f261f;
     }
   </style>
 </head>
 
 <body>
-  <div class="room">
-    <h1>WHOLENESS</h1>
-    <p>
-      Wholeness is the quiet integration of all parts.
-      Nothing rejected.
-      Nothing fragmented.
-      Everything included.
-    </p>
 
-    <a href="../index.html" class="home-btn">Return to Home</a>
+  <h1>WHOLENESS</h1>
+
+  <div class="grid">
+    <a href="room1.html" class="card">1</a>
+    <a href="room2.html" class="card">2</a>
+    <a href="room3.html" class="card">3</a>
+    <a href="room4.html" class="card">4</a>
+    <a href="room5.html" class="card">5</a>
+    <a href="room6.html" class="card">6</a>
+    <a href="room7.html" class="card">7</a>
+    <a href="room8.html" class="card">8</a>
+    <a href="room9.html" class="card">9</a>
+    <a href="room10.html" class="card">10</a>
+    <a href="room11.html" class="card">11</a>
+    <a href="room12.html" class="card">12</a>
+    <a href="room13.html" class="card">13</a>
+    <a href="room14.html" class="card">14</a>
+    <a href="room15.html" class="card">15</a>
+    <a href="room16.html" class="card">16</a>
   </div>
+
+  <a href="../index.html" class="home-btn">Return to Home</a>
+
 </body>
 </html>
