@@ -1,2 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Unfolding</title>
 
+<style>
 
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #efe6c8;
+  color: #2f3a2f;
+  text-align: center;
+}
+
+.room {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.room h1 {
+  letter-spacing: 4px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.room p {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.grid a {
+  padding: 20px;
+  border: 1px solid #999;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.grid a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.back {
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+.back a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.back a:hover {
+  opacity: 1;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="room">
+  <h1>Unfolding</h1>
+  <p>What quietly becomes.</p>
+
+  <div class="grid">
+    <a href="page1.html">I</a>
+    <a href="page2.html">II</a>
+    <a href="page3.html">III</a>
+    <a href="page4.html">IV</a>
+    <a href="page5.html">V</a>
+    <a href="page6.html">VI</a>
+    <a href="page7.html">VII</a>
+    <a href="page8.html">VIII</a>
+    <a href="page9.html">IX</a>
+    <a href="page10.html">X</a>
+    <a href="page11.html">XI</a>
+    <a href="page12.html">XII</a>
+    <a href="page13.html">XIII</a>
+    <a href="page14.html">XIV</a>
+    <a href="page15.html">XV</a>
+    <a href="page16.html">XVI</a>
+  </div>
+
+  <div class="back">
+    <a href="../index.html">Return to Home</a>
+  </div>
+</section>
+
+</body>
+</html>
