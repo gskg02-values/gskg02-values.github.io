@@ -6,52 +6,69 @@
 
   <style>
     body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: #f4f1ea;
-      text-align: center;
-    }
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #efe6c8;
+  color: #2f3a2f;
+  text-align: center;
+}
 
-    h1 {
-      margin-top: 40px;
-      font-size: 42px;
-      color: #2f3a2f;
-    }
+.room {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 20px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-    }
+.room h1 {
+  letter-spacing: 4px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
 
-    .card {
-      background: white;
-      padding: 40px 0;
-      text-decoration: none;
-      color: #2f3a2f;
-      border-radius: 6px;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+.room p {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 60px;
+}
 
-    .card:hover {
-      transform: scale(1.05);
-      background: #e8e4da;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-    .home-btn {
-      display: inline-block;
-      margin: 30px;
-      text-decoration: none;
-      padding: 10px 20px;
-      background: #2f3a2f;
-      color: white;
-      border-radius: 4px;
-    }
-  </style>
+.grid a {
+  padding: 20px;
+  border: 1px solid #999;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.grid a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.back {
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+.back a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.back a:hover {
+  opacity: 1;
+}
+
+</style>
 </head>
 
 <body>
