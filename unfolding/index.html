@@ -69,33 +69,51 @@ body {
   opacity: 1;
 }
 
+ .viewer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.viewer img {
+  max-width: 80%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
 </style>
+  
 </head>
-
+  
 <body>
-
 <section class="room">
   <h1>Unfolding</h1>
   <p>What quietly becomes</p>
 
   <div class="grid">
-    <a href="page1.html">I</a>
-    <a href="page2.html">II</a>
-    <a href="page3.html">III</a>
-    <a href="page4.html">IV</a>
-    <a href="page5.html">V</a>
-    <a href="page6.html">VI</a>
-    <a href="page7.html">VII</a>
-    <a href="page8.html">VIII</a>
-    <a href="page9.html">IX</a>
-    <a href="page10.html">X</a>
-    <a href="page11.html">XI</a>
-    <a href="page12.html">XII</a>
-    <a href="page13.html">XIII</a>
-    <a href="page14.html">XIV</a>
-    <a href="page15.html">XV</a>
-    <a href="page16.html">XVI</a>
+    
+<a href="#" class="card" onclick="showSlide(1)">I</a>
+<a href="#" class="card" onclick="showSlide(2)">II</a>
+<a href="#" class="card" onclick="showSlide(3)">III</a>
+<a href="#" class="card" onclick="showSlide(4)">IV</a>
+<a href="#" class="card" onclick="showSlide(5)">V</a>
+<a href="#" class="card" onclick="showSlide(6)">VI</a>
+<a href="#" class="card" onclick="showSlide(7)">VII</a>
+<a href="#" class="card" onclick="showSlide(8)">VIII</a>
+<a href="#" class="card" onclick="showSlide(9)">IX</a>
+<a href="#" class="card" onclick="showSlide(10)">X</a>
+<a href="#" class="card" onclick="showSlide(11)">XI</a>
+<a href="#" class="card" onclick="showSlide(12)">XII</a>
+<a href="#" class="card" onclick="showSlide(13)">XIII</a>
+<a href="#" class="card" onclick="showSlide(14)">XIV</a>
+<a href="#" class="card" onclick="showSlide(15)">XV</a>
+<a href="#" class="card" onclick="showSlide(16)">XVI</a>
+
   </div>
+  
+<div class="viewer">
+  <img id="slideImage" src="" alt="">
+</div>
 
   <div class="back">
     <a href="../index.html">Return to Home</a>
@@ -103,4 +121,18 @@ body {
 </section>
 
 </body>
+  
+  <script>
+function showSlide(number) {
+  const img = document.getElementById("slideImage");
+
+  img.style.opacity = 0;
+
+  setTimeout(() => {
+    img.src = "images/slide" + number + ".jpg";
+    img.style.opacity = 1;
+  }, 200);
+}
+</script>
+
 </html>
