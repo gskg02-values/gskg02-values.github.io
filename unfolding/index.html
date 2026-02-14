@@ -40,11 +40,17 @@ header p {
   border: 2px solid #2f3a2f;
   border-radius: 8px;
   transition: background 0.3s, color 0.3s;
+  cursor: pointer;
 }
 
 .explore-btn:hover {
   background: #2f3a2f;
   color: #efe6c8;
+}
+
+/* Slides container hidden initially */
+#slidesContainer {
+  display: none;
 }
 
 /* Slide styling */
@@ -113,10 +119,10 @@ header p {
   <h1>Unfolding</h1>
   <p>What quietly becomes</p>
 
-  <a href="#slides" class="explore-btn">EXPLORE</a>
+  <div class="explore-btn" id="exploreBtn">EXPLORE</div>
 </header>
 
-<main id="slides">
+<main id="slidesContainer">
   <!-- Slides 1-16 -->
   <div class="slide"><img src="images/slide1.jpg" alt="Slide 1"></div>
   <div class="slide"><img src="images/slide2.jpg" alt="Slide 2"></div>
@@ -137,7 +143,7 @@ header p {
 
   <!-- Return to Home -->
   <div class="return-home">
-    <a href="index.html">RETURN TO HOME</a>
+    <a href="unsaid.html">RETURN TO HOME</a>
   </div>
 </main>
 
@@ -145,10 +151,19 @@ header p {
 <div id="backToTop">&#8679;</div>
 
 <script>
-// Fade in slides as they scroll into view
+const slidesContainer = document.getElementById('slidesContainer');
+const exploreBtn = document.getElementById('exploreBtn');
 const slides = document.querySelectorAll('.slide');
 const backToTop = document.getElementById('backToTop');
 
+// Hide slides initially, show after clicking EXPLORE
+exploreBtn.addEventListener('click', () => {
+  slidesContainer.style.display = 'block';
+  window.scrollTo({ top: slidesContainer.offsetTop, behavior: 'smooth' });
+  fadeInOnScroll(); // trigger fade for visible slides
+});
+
+// Fade in slides as they scroll into view
 function fadeInOnScroll() {
   const triggerBottom = window.innerHeight * 0.9;
 
@@ -169,9 +184,6 @@ function fadeInOnScroll() {
 }
 
 window.addEventListener('scroll', fadeInOnScroll);
-
-// Show first slides on load
-fadeInOnScroll();
 
 // Back-to-Top click
 backToTop.addEventListener('click', () => {
