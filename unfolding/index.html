@@ -1,138 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unfolding</title>
 
 <style>
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #efe6c8;
+    color: #2f3a2f;
+    text-align: center;
+  }
 
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: #efe6c8;
-  color: #2f3a2f;
-  text-align: center;
-}
+  .room {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 20px;
+  }
 
-.room {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 20px;
-}
+  .room h1 {
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
 
-.room h1 {
-  letter-spacing: 4px;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
+  .room p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 40px;
+  }
 
-.room p {
-  font-size: 1rem;
-  opacity: 0.8;
-  margin-bottom: 60px;
-}
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+  .grid a {
+    padding: 20px;
+    border: 1px solid #999;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: block;
+    border-radius: 6px;
+  }
 
-.grid a {
-  padding: 20px;
-  border: 1px solid #999;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-}
+  .grid a:hover {
+    background: rgba(0,0,0,0.05);
+  }
 
-.grid a:hover {
-  background: rgba(0,0,0,0.05);
-}
+  .back {
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
 
-.back {
-  margin-top: 60px;
-  font-size: 0.9rem;
-}
+  .back a {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.7;
+  }
 
-.back a {
-  text-decoration: none;
-  color: inherit;
-  opacity: 0.7;
-}
+  .back a:hover {
+    opacity: 1;
+  }
 
-.back a:hover {
-  opacity: 1;
-}
+  .viewer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
 
- .viewer {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-.viewer img {
-  max-width: 80%;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
+  .viewer img {
+    max-width: 80%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
 </style>
-  
+
 </head>
-  
 <body>
+
 <section class="room">
   <h1>Unfolding</h1>
   <p>What quietly becomes</p>
 
   <div class="grid">
-    
-<a href="#" class="card" onclick="showslide(1)">I</a>
-<a href="#" class="card" onclick="showslide(2)">II</a>
-<a href="#" class="card" onclick="showslide(3)">III</a>
-<a href="#" class="card" onclick="showslide(4)">IV</a>
-<a href="#" class="card" onclick="showslide(5)">V</a>
-<a href="#" class="card" onclick="showslide(6)">VI</a>
-<a href="#" class="card" onclick="showslide(7)">VII</a>
-<a href="#" class="card" onclick="showslide(8)">VIII</a>
-<a href="#" class="card" onclick="showslide(9)">IX</a>
-<a href="#" class="card" onclick="showslide(10)">X</a>
-<a href="#" class="card" onclick="showslide(11)">XI</a>
-<a href="#" class="card" onclick="showslide(12)">XII</a>
-<a href="#" class="card" onclick="showslide(13)">XIII</a>
-<a href="#" class="card" onclick="showslide(14)">XIV</a>
-<a href="#" class="card" onclick="showslide(15)">XV</a>
-<a href="#" class="card" onclick="showslide(16)">XVI</a>
-
+    <a href="#" class="card" onclick="showSlide(1); return false;">I</a>
+    <a href="#" class="card" onclick="showSlide(2); return false;">II</a>
+    <a href="#" class="card" onclick="showSlide(3); return false;">III</a>
+    <a href="#" class="card" onclick="showSlide(4); return false;">IV</a>
+    <a href="#" class="card" onclick="showSlide(5); return false;">V</a>
+    <a href="#" class="card" onclick="showSlide(6); return false;">VI</a>
+    <a href="#" class="card" onclick="showSlide(7); return false;">VII</a>
+    <a href="#" class="card" onclick="showSlide(8); return false;">VIII</a>
+    <a href="#" class="card" onclick="showSlide(9); return false;">IX</a>
+    <a href="#" class="card" onclick="showSlide(10); return false;">X</a>
+    <a href="#" class="card" onclick="showSlide(11); return false;">XI</a>
+    <a href="#" class="card" onclick="showSlide(12); return false;">XII</a>
+    <a href="#" class="card" onclick="showSlide(13); return false;">XIII</a>
+    <a href="#" class="card" onclick="showSlide(14); return false;">XIV</a>
+    <a href="#" class="card" onclick="showSlide(15); return false;">XV</a>
+    <a href="#" class="card" onclick="showSlide(16); return false;">XVI</a>
   </div>
-  
-<div class="viewer">
-  <img id="slideImage" src="" alt="">
-</div>
+
+  <div class="viewer">
+    <img id="slideImage" src="" alt="Slide Image">
+  </div>
 
   <div class="back">
     <a href="../index.html">Return to Home</a>
   </div>
 </section>
 
-
-  <script>
 <script>
-function showSlide(number) {
-  const img = document.getElementById("slideImage");
+  function showSlide(number) {
+    const img = document.getElementById("slideImage");
+    img.style.opacity = 0; // fade out
 
-  img.style.opacity = 0;
-
-  setTimeout(() => {
-    img.src = "slide " + number + ".jpg";
-    img.style.opacity = 1;
-  }, 200);
-}
+    setTimeout(() => {
+      img.src = "slide" + number + ".jpg"; // slide1.jpg, slide2.jpg ...
+      img.style.opacity = 1; // fade in
+    }, 200);
+  }
 </script>
 
 </body>
