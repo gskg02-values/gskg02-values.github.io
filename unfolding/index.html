@@ -36,7 +36,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns fixed */
+  grid-template-columns: repeat(4, 1fr); /* fixed 4x4 */
   gap: 20px;
   max-width: 900px;
   margin: 0 auto;
@@ -77,8 +77,10 @@ body {
 
 .viewer img {
   max-width: 80%;
-  opacity: 0;
+  opacity: 0; /* start invisible */
   transition: opacity 0.6s ease;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 </style>
 </head>
@@ -89,22 +91,22 @@ body {
   <p>What quietly becomes</p>
 
   <div class="grid">
-    <a href="#" class="card" onclick="showSlide(1); return false;">I</a>
-    <a href="#" class="card" onclick="showSlide(2); return false;">II</a>
-    <a href="#" class="card" onclick="showSlide(3); return false;">III</a>
-    <a href="#" class="card" onclick="showSlide(4); return false;">IV</a>
-    <a href="#" class="card" onclick="showSlide(5); return false;">V</a>
-    <a href="#" class="card" onclick="showSlide(6); return false;">VI</a>
-    <a href="#" class="card" onclick="showSlide(7); return false;">VII</a>
-    <a href="#" class="card" onclick="showSlide(8); return false;">VIII</a>
-    <a href="#" class="card" onclick="showSlide(9); return false;">IX</a>
-    <a href="#" class="card" onclick="showSlide(10); return false;">X</a>
-    <a href="#" class="card" onclick="showSlide(11); return false;">XI</a>
-    <a href="#" class="card" onclick="showSlide(12); return false;">XII</a>
-    <a href="#" class="card" onclick="showSlide(13); return false;">XIII</a>
-    <a href="#" class="card" onclick="showSlide(14); return false;">XIV</a>
-    <a href="#" class="card" onclick="showSlide(15); return false;">XV</a>
-    <a href="#" class="card" onclick="showSlide(16); return false;">XVI</a>
+    <a href="#" onclick="showSlide(1); return false;">I</a>
+    <a href="#" onclick="showSlide(2); return false;">II</a>
+    <a href="#" onclick="showSlide(3); return false;">III</a>
+    <a href="#" onclick="showSlide(4); return false;">IV</a>
+    <a href="#" onclick="showSlide(5); return false;">V</a>
+    <a href="#" onclick="showSlide(6); return false;">VI</a>
+    <a href="#" onclick="showSlide(7); return false;">VII</a>
+    <a href="#" onclick="showSlide(8); return false;">VIII</a>
+    <a href="#" onclick="showSlide(9); return false;">IX</a>
+    <a href="#" onclick="showSlide(10); return false;">X</a>
+    <a href="#" onclick="showSlide(11); return false;">XI</a>
+    <a href="#" onclick="showSlide(12); return false;">XII</a>
+    <a href="#" onclick="showSlide(13); return false;">XIII</a>
+    <a href="#" onclick="showSlide(14); return false;">XIV</a>
+    <a href="#" onclick="showSlide(15); return false;">XV</a>
+    <a href="#" onclick="showSlide(16); return false;">XVI</a>
   </div>
 
   <div class="viewer">
@@ -119,11 +121,14 @@ body {
 <script>
 function showSlide(number) {
   const img = document.getElementById("slideImage");
-  img.style.opacity = 0; // fade out
 
+  // Fade out first
+  img.style.opacity = 0;
+
+  // Wait a moment, then change image and fade in
   setTimeout(() => {
-    img.src = "slide" + number + ".jpg"; // must match your file names
-    img.style.opacity = 1; // fade in
+    img.src = "slide" + number + ".jpg"; // slide1.jpg → slide16.jpg
+    img.style.opacity = 1;
   }, 200);
 }
 </script>
