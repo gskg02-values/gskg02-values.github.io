@@ -83,6 +83,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 </style>
+
 </head>
 <body>
 
@@ -127,7 +128,7 @@ function showSlide(number) {
 
   // Wait a moment, then change image and fade in
   setTimeout(() => {
-    img.src = "slide" + number + ".jpg"; // slide1.jpg → slide16.jpg
+    img.src = "images/slide" + number + ".jpg"; // look inside 'images' folder
     img.style.opacity = 1;
   }, 200);
 }
