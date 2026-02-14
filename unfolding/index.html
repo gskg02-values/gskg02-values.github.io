@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unfolding</title>
+<title>Unfolding - Explore</title>
 
 <style>
 body {
@@ -14,124 +14,109 @@ body {
   text-align: center;
 }
 
-.room {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 20px;
+header {
+  padding: 40px 20px 20px;
 }
 
-.room h1 {
+header h1 {
   letter-spacing: 4px;
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.room p {
+header p {
   font-size: 1rem;
   opacity: 0.8;
-  margin-bottom: 60px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* fixed 4x4 */
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+.slide {
+  margin: 50px auto;
+  max-width: 80%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.grid a {
-  padding: 20px;
-  border: 1px solid #999;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
+.slide img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
 }
 
-.grid a:hover {
-  background: rgba(0,0,0,0.05);
+.return-home {
+  margin: 60px 0;
+  font-size: 1rem;
 }
 
-.back {
-  margin-top: 60px;
-  font-size: 0.9rem;
-}
-
-.back a {
+.return-home a {
   text-decoration: none;
   color: inherit;
   opacity: 0.7;
-}
-
-.back a:hover {
-  opacity: 1;
-}
-
-.viewer {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-.viewer img {
-  max-width: 80%;
-  opacity: 0; /* start invisible */
-  transition: opacity 0.6s ease;
+  border: 1px solid #999;
+  padding: 10px 20px;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.return-home a:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.05);
 }
 </style>
-
 </head>
 <body>
 
-<section class="room">
+<header>
   <h1>Unfolding</h1>
   <p>What quietly becomes</p>
+</header>
 
-  <div class="grid">
-    <a href="#" onclick="showSlide(1); return false;">I</a>
-    <a href="#" onclick="showSlide(2); return false;">II</a>
-    <a href="#" onclick="showSlide(3); return false;">III</a>
-    <a href="#" onclick="showSlide(4); return false;">IV</a>
-    <a href="#" onclick="showSlide(5); return false;">V</a>
-    <a href="#" onclick="showSlide(6); return false;">VI</a>
-    <a href="#" onclick="showSlide(7); return false;">VII</a>
-    <a href="#" onclick="showSlide(8); return false;">VIII</a>
-    <a href="#" onclick="showSlide(9); return false;">IX</a>
-    <a href="#" onclick="showSlide(10); return false;">X</a>
-    <a href="#" onclick="showSlide(11); return false;">XI</a>
-    <a href="#" onclick="showSlide(12); return false;">XII</a>
-    <a href="#" onclick="showSlide(13); return false;">XIII</a>
-    <a href="#" onclick="showSlide(14); return false;">XIV</a>
-    <a href="#" onclick="showSlide(15); return false;">XV</a>
-    <a href="#" onclick="showSlide(16); return false;">XVI</a>
-  </div>
+<main>
+  <!-- Slides 1-16 -->
+  <div class="slide"><img src="images/slide1.jpg" alt="Slide 1"></div>
+  <div class="slide"><img src="images/slide2.jpg" alt="Slide 2"></div>
+  <div class="slide"><img src="images/slide3.jpg" alt="Slide 3"></div>
+  <div class="slide"><img src="images/slide4.jpg" alt="Slide 4"></div>
+  <div class="slide"><img src="images/slide5.jpg" alt="Slide 5"></div>
+  <div class="slide"><img src="images/slide6.jpg" alt="Slide 6"></div>
+  <div class="slide"><img src="images/slide7.jpg" alt="Slide 7"></div>
+  <div class="slide"><img src="images/slide8.jpg" alt="Slide 8"></div>
+  <div class="slide"><img src="images/slide9.jpg" alt="Slide 9"></div>
+  <div class="slide"><img src="images/slide10.jpg" alt="Slide 10"></div>
+  <div class="slide"><img src="images/slide11.jpg" alt="Slide 11"></div>
+  <div class="slide"><img src="images/slide12.jpg" alt="Slide 12"></div>
+  <div class="slide"><img src="images/slide13.jpg" alt="Slide 13"></div>
+  <div class="slide"><img src="images/slide14.jpg" alt="Slide 14"></div>
+  <div class="slide"><img src="images/slide15.jpg" alt="Slide 15"></div>
+  <div class="slide"><img src="images/slide16.jpg" alt="Slide 16"></div>
 
-  <div class="viewer">
-    <img id="slideImage" src="" alt="Slide Image">
+  <!-- Return to Home -->
+  <div class="return-home">
+    <a href="../index.html">RETURN TO HOME</a>
   </div>
-
-  <div class="back">
-    <a href="../index.html">Return to Home</a>
-  </div>
-</section>
+</main>
 
 <script>
-function showSlide(number) {
-  const img = document.getElementById("slideImage");
+// Fade in slides as they scroll into view
+const slides = document.querySelectorAll('.slide');
 
-  // Fade out first
-  img.style.opacity = 0;
+function fadeInOnScroll() {
+  const triggerBottom = window.innerHeight * 0.9;
 
-  // Wait a moment, then change image and fade in
-  setTimeout(() => {
-    img.src = "images/slide" + number + ".jpg"; // look inside 'images' folder
-    img.style.opacity = 1;
-  }, 200);
+  slides.forEach(slide => {
+    const slideTop = slide.getBoundingClientRect().top;
+
+    if(slideTop < triggerBottom) {
+      slide.style.opacity = 1;
+    }
+  });
 }
+
+window.addEventListener('scroll', fadeInOnScroll);
+
+// Initial check
+fadeInOnScroll();
 </script>
 
 </body>
