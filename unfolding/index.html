@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unfolding</title>
 
+<script defer data-domain="gskg02-values.github.io" src="https://plausible.io/js/script.js"></script>
+  
 <style>
 body {
   margin: 0;
@@ -163,7 +166,11 @@ const backToTop = document.getElementById('backToTop');
 // EXPLORE click behavior
 exploreBtn.addEventListener('click', () => {
 
+  if (window.plausible) plausible('Explored UNFOLDING');
+
   slidesContainer.style.display = 'block';
+  ...
+});
 
   // Scroll to first slide
   document.getElementById('slide1').scrollIntoView({
