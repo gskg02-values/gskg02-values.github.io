@@ -181,7 +181,11 @@ function fadeInOnScroll() {
 
   const triggerBottom = window.innerHeight * 0.9;
 
-  slides.forEach(slide => {
+  slides.forEach((slide, index) => {
+
+    // Skip slide 1 (index 0)
+    if (index === 0) return;
+
     const slideTop = slide.getBoundingClientRect().top;
 
     if (slideTop < triggerBottom) {
