@@ -58,9 +58,16 @@ header p {
   margin: 50px auto;
   max-width: 80%;
   opacity: 0;
-  transition: opacity 1s ease;
+  transform: translateY(25px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* When visible */
+.slide.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .slide img {
@@ -118,13 +125,12 @@ header p {
 <header>
   <h1>Unfolding</h1>
   <p>What quietly becomes</p>
-
   <div class="explore-btn" id="exploreBtn">EXPLORE</div>
 </header>
 
 <main id="slidesContainer">
-  <!-- Slides 1-16 -->
-  <div class="slide"><img src="images/slide1.jpg" alt="Slide 1"></div>
+
+  <div class="slide" id="slide1"><img src="images/slide1.jpg" alt="Slide 1"></div>
   <div class="slide"><img src="images/slide2.jpg" alt="Slide 2"></div>
   <div class="slide"><img src="images/slide3.jpg" alt="Slide 3"></div>
   <div class="slide"><img src="images/slide4.jpg" alt="Slide 4"></div>
@@ -141,13 +147,11 @@ header p {
   <div class="slide"><img src="images/slide15.jpg" alt="Slide 15"></div>
   <div class="slide"><img src="images/slide16.jpg" alt="Slide 16"></div>
 
-  <!-- Return to Home -->
   <div class="return-home">
     <a href="../index.html">RETURN TO HOME</a>
   </div>
 </main>
 
-<!-- Back to Top arrow -->
 <div id="backToTop">&#8679;</div>
 
 <script>
@@ -156,27 +160,39 @@ const exploreBtn = document.getElementById('exploreBtn');
 const slides = document.querySelectorAll('.slide');
 const backToTop = document.getElementById('backToTop');
 
-// Hide slides initially, show after clicking EXPLORE
+// EXPLORE click behavior
 exploreBtn.addEventListener('click', () => {
+
   slidesContainer.style.display = 'block';
-  window.scrollTo({ top: slidesContainer.offsetTop, behavior: 'smooth' });
-  fadeInOnScroll(); // trigger fade for visible slides
+
+  // Scroll to first slide
+  document.getElementById('slide1').scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  // Cinematic reveal for Slide 1
+  setTimeout(() => {
+    document.getElementById('slide1').classList.add('show');
+  }, 500);
 });
 
-// Fade in slides as they scroll into view
+// Fade in slides on scroll
 function fadeInOnScroll() {
+
   const triggerBottom = window.innerHeight * 0.9;
 
   slides.forEach(slide => {
     const slideTop = slide.getBoundingClientRect().top;
-    if(slideTop < triggerBottom) {
-      slide.style.opacity = 1;
+
+    if (slideTop < triggerBottom) {
+      slide.classList.add('show');
     }
   });
 
   // Show Back-to-Top after slide3
   const slide3Bottom = slides[2].getBoundingClientRect().bottom;
-  if(slide3Bottom < 0) {
+
+  if (slide3Bottom < 0) {
     backToTop.style.display = 'block';
   } else {
     backToTop.style.display = 'none';
