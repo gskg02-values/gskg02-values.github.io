@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wholeness</title>
-
+  
+<script defer data-domain="gskg02-values.github.io" src="https://plausible.io/js/script.js"></script>
+  
 <style>
 body {
   margin: 0;
@@ -162,7 +164,11 @@ const backToTop = document.getElementById('backToTop');
 
 exploreBtn.addEventListener('click', () => {
 
+  if (window.plausible) plausible('Explored WHOLENESS');
+
   slidesContainer.style.display = 'block';
+  ...
+});
 
   document.getElementById('slide1').scrollIntoView({
     behavior: 'smooth'
