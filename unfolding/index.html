@@ -164,13 +164,12 @@ const slides = document.querySelectorAll('.slide');
 const backToTop = document.getElementById('backToTop');
 
 // EXPLORE click behavior
+// EXPLORE click behavior
 exploreBtn.addEventListener('click', () => {
 
   if (window.plausible) plausible('Explored UNFOLDING');
 
   slidesContainer.style.display = 'block';
-  ...
-});
 
   // Scroll to first slide
   document.getElementById('slide1').scrollIntoView({
@@ -181,6 +180,7 @@ exploreBtn.addEventListener('click', () => {
   setTimeout(() => {
     document.getElementById('slide1').classList.add('show');
   }, 500);
+
 });
 
 // Fade in slides on scroll
