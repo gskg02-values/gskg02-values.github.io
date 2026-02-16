@@ -51,13 +51,20 @@ header p {
   display: none;
 }
 
+/* Slide styling */
 .slide {
   margin: 50px auto;
   max-width: 80%;
   opacity: 0;
-  transition: opacity 1s ease;
+  transform: translateY(25px);
+  transition: opacity 2.2s ease, transform 2.2s ease;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.slide.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .slide img {
@@ -108,6 +115,7 @@ header p {
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -119,7 +127,7 @@ header p {
 <main id="slidesContainer">
 
   <!-- 18 Slides -->
-  <div class="slide"><img src="images/slide1.jpg" alt=""></div>
+  <div class="slide" id="slide1"><img src="images/slide1.jpg" alt=""></div>
   <div class="slide"><img src="images/slide2.jpg" alt=""></div>
   <div class="slide"><img src="images/slide3.jpg" alt=""></div>
   <div class="slide"><img src="images/slide4.jpg" alt=""></div>
@@ -153,23 +161,39 @@ const slides = document.querySelectorAll('.slide');
 const backToTop = document.getElementById('backToTop');
 
 exploreBtn.addEventListener('click', () => {
+
   slidesContainer.style.display = 'block';
-  window.scrollTo({ top: slidesContainer.offsetTop, behavior: 'smooth' });
-  fadeInOnScroll();
+
+  document.getElementById('slide1').scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  setTimeout(() => {
+    document.getElementById('slide1').classList.add('show');
+  }, 500);
+
 });
 
+// Fade in slides on scroll (skip slide 1)
 function fadeInOnScroll() {
+
   const triggerBottom = window.innerHeight * 0.9;
 
-  slides.forEach(slide => {
+  slides.forEach((slide, index) => {
+
+    if (index === 0) return;
+
     const slideTop = slide.getBoundingClientRect().top;
-    if(slideTop < triggerBottom) {
-      slide.style.opacity = 1;
+
+    if (slideTop < triggerBottom) {
+      slide.classList.add('show');
     }
   });
 
+  // Back to Top appears after slide 3
   const slide3Bottom = slides[2].getBoundingClientRect().bottom;
-  if(slide3Bottom < 0) {
+
+  if (slide3Bottom < 0) {
     backToTop.style.display = 'block';
   } else {
     backToTop.style.display = 'none';
