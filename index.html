@@ -12,6 +12,7 @@ body {
   color: #2f3a2f;
   text-align: center;
   overflow-x: hidden;
+  transition: background-color 0.8s ease;
 }
 
 /* Background Layer */
@@ -43,6 +44,17 @@ body::after {
   z-index: -1;
 }
 
+/* Subtle dim when About visible */
+body.dimmed::before {
+  background:
+    linear-gradient(to bottom,
+      rgba(238,224,190,0.96) 0%,
+      rgba(238,224,190,0.85) 50%,
+      rgba(238,224,190,0.7) 100%
+    ),
+    url("Nature.jpg") no-repeat center 85%/cover;
+}
+
 /* Sections */
 section {
   min-height: 100vh;
@@ -57,12 +69,29 @@ section {
   font-size: 3rem;
   letter-spacing: 6px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .landing h2 {
   font-weight: normal;
   font-size: 1.2rem;
   opacity: 0.8;
+}
+
+/* About Reveal */
+#aboutReveal {
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+#aboutReveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Downward indicator */
@@ -145,8 +174,42 @@ section {
 
 <!-- Landing -->
 <section class="landing">
-  <h1>THE UNSAID</h1>
+  <h1 id="unsaid">THE UNSAID</h1>
   <h2>A Museum of Quiet Order</h2>
+
+  <!-- About Reveal -->
+  <div id="aboutReveal">
+    <p>This work begins with a quiet inquiry:</p>
+    <p>What is already visible — yet remains unfelt?</p>
+
+    <p>
+      Here we have tried to dig out the hidden truth of nature —
+      not something buried, but something openly present.
+      It surrounds us, sustains us, and unfolds before our eyes.
+      Yet in familiarity, it becomes invisible to our feeling.
+    </p>
+
+    <p>
+      That is why this space is called <strong>UNSAID</strong>.
+      The unsaid is not the unspoken.
+      It is the unnoticed.
+    </p>
+
+    <p>
+      <strong>Relook.</strong> Because what we see once is rarely what truly is.<br>
+      <strong>Rethink.</strong> Because meaning shifts when perception softens.<br>
+      <strong>Return.</strong> Because truth waits in what we have overlooked.
+    </p>
+
+    <p>
+      Unfolding reveals.<br>
+      Wholeness gathers.<br>
+      Continuance carries awareness forward.
+    </p>
+
+    <p>Nothing here is hidden. Only waiting to be felt.</p>
+  </div>
+
   <div class="arrow"></div>
 </section>
 
@@ -185,15 +248,14 @@ section {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+  // Scroll Fade Observer
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
 
       if (entry.isIntersecting) {
 
-        // Make section visible
         entry.target.classList.add("visible");
 
-        // If invitation section → stagger inner lines
         if (entry.target.classList.contains("invitation")) {
 
           const lines = entry.target.querySelectorAll("p");
@@ -213,9 +275,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
+
+  // About Hover / Tap Logic
+  const unsaid = document.getElementById("unsaid");
+  const about = document.getElementById("aboutReveal");
+
+  // Desktop Hover
+  unsaid.addEventListener("mouseenter", () => {
+    about.classList.add("show");
+    document.body.classList.add("dimmed");
+  });
+
+  unsaid.addEventListener("mouseleave", () => {
+    about.classList.remove("show");
+    document.body.classList.remove("dimmed");
+  });
+
+  // Mobile Tap
+  unsaid.addEventListener("click", (e) => {
+    e.stopPropagation();
+    about.classList.toggle("show");
+    document.body.classList.toggle("dimmed");
+  });
+
+  // Tap outside closes
+  document.addEventListener("click", () => {
+    about.classList.remove("show");
+    document.body.classList.remove("dimmed");
+  });
+
 });
 </script>
-
 
 </body>
 </html>
