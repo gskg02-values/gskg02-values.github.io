@@ -155,18 +155,19 @@ const exploreBtn = document.getElementById('exploreBtn');
 const slides = document.querySelectorAll('.slide');
 const backToTop = document.getElementById('backToTop');
 
+// EXPLORE click behavior
 exploreBtn.addEventListener('click', () => {
 
   if (window.plausible) plausible('Explored CONTINUANCE');
 
   slidesContainer.style.display = 'block';
-  ...
-});
 
+  // Scroll to first slide
   document.getElementById('slide1').scrollIntoView({
     behavior: 'smooth'
   });
 
+  // Cinematic reveal for Slide 1
   setTimeout(() => {
     document.getElementById('slide1').classList.add('show');
   }, 500);
